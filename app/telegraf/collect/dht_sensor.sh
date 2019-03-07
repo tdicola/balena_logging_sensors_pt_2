@@ -15,4 +15,4 @@ function cat_retry() {
 }
 
 cd $IIO_DEVICE
-echo $NAME humidity=$(cat_retry in_humidityrelative_input),temperature=$(cat_retry in_temp_input)
+echo $MEASUREMENT humidity=$(cat_retry in_humidityrelative_input),temperature=$(cat_retry in_temp_input)

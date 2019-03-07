@@ -10,7 +10,7 @@ datasources:
   - name: 'InfluxDB - Telegraf'
     type: influxdb
     access: proxy
-    url: https://influxdb:8086
+    url: http://influxdb:8086
     database: ${INFLUXDB_DB}
     basicAuth: true
     basicAuthUser: ${INFLUXDB_USER}
