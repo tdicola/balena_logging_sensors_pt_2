@@ -1,0 +1,43 @@
+version: '2'
+
+# Be sure to set these environment variables:
+#  - INFLUXDB_DB
+#  - INFLUXDB_USER
+#  - INFLUXDB_USER_PASSWORD
+
+services:
+
+  influxdb:
+    build: influxdb
+    restart: on-failure
+    volumes:
+      - 'influxdb-data:/var/lib/influxdb'
+
+  grafana:
+    build: grafana
+    depends_on:
+      - influxdb
+    ports:
+      - '80:3000'
+    restart: on-failure
+    volumes:
+      - 'grafana-data:/var/lib/grafana'
+
+  dtoverlay-enviro-phat:
+    build: dtoverlay
+    command: apply_overlays enviro-phat
+    privileged: true
+    restart: no
+
+  sensors-enviro-phat:
+     build: telegraf
+     depends_on:
+       - influxdb
+       - dtoverlay-enviro-phat
+     environment:
+       - 'TELEGRAF_EXEC_COMMAND=/collect/mock_dht_sensor.sh'
+     restart: on-failure
+
+volumes:
+  influxdb-data:
+  grafana-data:
