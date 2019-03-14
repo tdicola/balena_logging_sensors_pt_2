@@ -1,5 +1,7 @@
 # Logging Data With Balena Pt. 2: Build a Sensor Dashboard
 
+[![Screencast](https://img.youtube.com/vi/X_ECoklE3-s/0.jpg)](https://www.youtube.com/watch?v=X_ECoklE3-s)
+
 This is the second in a three part series that dives into logging sensor data with embedded Linux, containers, and Balena's platform.  The [first part](https://github.com/tdicola/balena_logging_sensors_pt_1/blob/master/index.md) was a deep dive into how sensors can be read by embedded Linux.  This second part builds on the first part to add a database and web dashboard for viewing sensor data.  You'll learn about multi-container applications in Balena and how to use services like Telegraf, InfluxDB, and Grafana to store and visualize sensor readings.
 
 # Hardware and Setup
